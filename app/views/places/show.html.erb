@@ -6,13 +6,12 @@
 
 
 
- 
+<% if @place.latitude.present? && @place.longitude.present? %> 
 
   <script>
 
     function initMap() {
-      var myLatLng = {lat: -25.363, lng: 131.044};
-
+      var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
 
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
@@ -25,15 +24,16 @@
         title: 'Hello World!'
       });
     }
-  </script>
 
+  </script>
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmTa5gB-yUQybMcOgSmBa-xATsYdLnDGM&callback=initMap">
   </script>
 
-    <div id="map"></div>
+  <div id="map"></div>
+<% end %>
 
-
+<br />
 
     <div class="float-right">
       <% if current_user && current_user == @place.user %>
