@@ -58,7 +58,7 @@
 <% @place.photos.each do |photo| %>
   <div>
     <blockquote>
-      <%= image_tag photo.picture.url %>
+      <%= image_tag photo.picture %>
       <b><%= photo.caption %></b> -
       <small><%= photo.user.email %></small>
     </blockquote>
